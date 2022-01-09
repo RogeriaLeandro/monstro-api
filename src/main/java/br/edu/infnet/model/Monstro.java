@@ -14,11 +14,12 @@ public class Monstro {
 	@GeneratedValue
 	private Long id;
 	private String nome;
-	private int pdv;
+	private int pontosDeVida;
 	private int forca;
 	private int defesa;
 	private int agilidade;
-	private String fdd;
+	private int qtdDadosDano;
+	private int tamanhoDadosDano;
 	
 	
 }
