@@ -14,17 +14,6 @@ retorno:
 	"defesa": 0,
 	"agilidade": 1,
 	"qtdDadosDano": 2,
-  "tamanhoDadosDano": 4
+  	"tamanhoDadosDano": 4
 }
 ```
-
-{
-	"id": 1,
-	"nome": "Morto-Vivo",
-	"pontosDeVida": 25,
-	"forca": 4,
-	"defesa": 0,
-	"agilidade": 1,
-	"qtdDadosDano": 2,
-  "tamanhoDadosDano": 4
-}
