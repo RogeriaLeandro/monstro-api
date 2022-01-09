@@ -25,15 +25,21 @@ public class MonstroServiceImpl implements MonstroService{
 	public void delete(Monstro entity) {
 		this.repository.delete(entity);	
 	}
+	
+	@Override
+	public Monstro getById(Long id) {
+		return this.repository.findById(id).get();
+	}
+	
+	@Override
+	public void update(Long id, Monstro entity) {
+		entity.setId(id);
+		this.repository.save(entity);
+	}
 
 	@Override
 	public List<Monstro> getAll() {
 		return this.repository.findAll();
-	}
-	
-	@Override
-	public Monstro findById(Long id) {
-		return this.repository.getById(id);
 	}
 
 
@@ -47,6 +53,9 @@ public class MonstroServiceImpl implements MonstroService{
 		
 		return monstros.get(random);
 	}
+
+
+
 
 
 

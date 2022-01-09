@@ -20,6 +20,5 @@ public class Monstro {
 	private int agilidade;
 	private int qtdDadosDano;
 	private int tamanhoDadosDano;
-	
-	
+
 }
