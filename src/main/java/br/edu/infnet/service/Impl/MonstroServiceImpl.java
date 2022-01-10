@@ -1,6 +1,7 @@
 package br.edu.infnet.service.Impl;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,7 @@ public class MonstroServiceImpl implements MonstroService{
 	
 	@Override
 	public Monstro getById(Long id) {
-		return this.repository.findById(id).get();
+		return this.repository.findById(id).orElseThrow(NoSuchElementException::new);
 	}
 	
 	@Override

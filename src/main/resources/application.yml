@@ -7,4 +7,4 @@ spring:
     password: 
   jpa:    database-platform: org.hibernate.dialect.H2Dialect    hibernate:      ddl-auto: create
   h2:
-    console:      enabled: true  
+    console:      enabled: true  config:    import: optional:configserver:http://localhost:8888      
