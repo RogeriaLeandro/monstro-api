@@ -7,7 +7,7 @@ https://github.com/FabioNazario/seguranca <br>
 https://github.com/FabioNazario/eurekaServer <br>
 https://github.com/FabioNazario/configServer <br>
 
-**Repositório de configuração**(usado pelo configServer):
+**Repositório de configuração**(usado pelo configServer):<br>
 https://github.com/FabioNazario/config-repo
 
 
