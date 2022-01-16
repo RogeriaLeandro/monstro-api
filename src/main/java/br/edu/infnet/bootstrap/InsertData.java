@@ -17,6 +17,14 @@ public class InsertData {
 	@EventListener
 	public void appReady(ApplicationReadyEvent event) {
 		
+		try {
+			if (!monstroService.getAll().isEmpty()) {
+				return;
+			}
+		}catch(Exception e){
+			
+		}
+		
 		Monstro monstro = new Monstro();
 		monstro.setNome("Morto-Vivo");
 		monstro.setPontosDeVida(25);

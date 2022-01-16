@@ -26,16 +26,9 @@ public class MonstroController {
 	
 	Logger logger = Logger.getLogger(MonstroController.class.getName());
 	
-	@Value("${microservice.example.greeting}")
-	private String hello;
-
 	@Autowired
 	MonstroService monstroService;
 	
-	@GetMapping("/testeServerConfig")
-	public ResponseEntity<String> testeServerConfig(){
-		return ResponseEntity.ok(hello);
-	}
 	
 	@PostMapping
 	public void create(@RequestBody Monstro m) {
@@ -44,10 +37,17 @@ public class MonstroController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id) {
-		Monstro byId = this.monstroService.getById(id);
-		logger.info("Deletando o monstro: id:" + byId.getId() + " nome:" + byId.getNome());
-		this.monstroService.delete(byId);
+	public ResponseEntity<Void> delete(@PathVariable Long id) {
+
+		try {
+			Monstro byId = this.monstroService.getById(id);
+			logger.info("Deletando o monstro: id:" + byId.getId() + " nome:" + byId.getNome());
+			this.monstroService.delete(byId);
+		} catch (NoSuchElementException e) {
+			logger.info("Monstro não encontrado " + "(id:"+id+") ");
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
@@ -67,9 +67,21 @@ public class MonstroController {
 	}
 	
 	@PutMapping("/{id}")
-	public void update(@PathVariable Long id, @RequestBody Monstro m){
-		logger.info("Alterando monstro: " + id);
-		this.monstroService.update(id, m);
+	public ResponseEntity<Void> update(@PathVariable Long id, @RequestBody Monstro m){
+		
+		
+		try {
+			logger.info("Monstro encontrado: id:" + m.getId() + " nome:" + m.getNome());
+			m = this.monstroService.getById(id);
+			logger.info("Alterando monstro: " + id);
+			this.monstroService.update(id, m);
+		} catch (NoSuchElementException e) {
+			logger.info("Monstro não encontrado " + "(id:"+id+") ");
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+		return new ResponseEntity<>(HttpStatus.OK);
+		
 	}
 	
 	@GetMapping
