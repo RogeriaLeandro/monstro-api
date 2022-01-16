@@ -7,6 +7,10 @@ https://github.com/FabioNazario/seguranca <br>
 https://github.com/FabioNazario/eurekaServer <br>
 https://github.com/FabioNazario/configServer <br>
 
+**Repositório de configuração**(usado pelo configServer):
+https://github.com/FabioNazario/config-repo
+
+
 Obs: Todas as aplicações então incompletas e sujeitas a modificações
 
 localhost:8080/api/monstro/random
